@@ -44,5 +44,5 @@ paper {
 }
 
 tasks.runServer {
-    minecraftVersion = libs.versions.minecraft.get()
+    minecraftVersion(libs.versions.minecraft.get())
 }
