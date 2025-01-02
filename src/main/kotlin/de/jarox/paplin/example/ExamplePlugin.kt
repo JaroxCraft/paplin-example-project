@@ -29,8 +29,8 @@ class ExamplePlugin : PaplinPlugin() {
         }
 
         // register a simple listener
-        listen<BlockBreakEvent> {
-            broadcast(Component.text("${it.player.name} broke a block!"))
+        listen<BlockBreakEvent> { event ->
+            broadcast(event.player.name().append(component(" broke a block!")))
         }
     }
 }
