@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.3.0"
-minecraft = "1.21.4"
+minecraft = "1.21.10"
 paplin = "1.0.0"
 
 [plugins]
