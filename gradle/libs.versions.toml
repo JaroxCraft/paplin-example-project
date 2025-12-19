@@ -7,5 +7,5 @@ paplin = "1.0.0"
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 shadow = { id = "com.gradleup.shadow", version = "9.3.0" }
 paperweight-userdev = { id = "io.papermc.paperweight.userdev", version = "2.0.0-SNAPSHOT" }
-run-paper = {id = "xyz.jpenilla.run-paper", version = "2.3.1"}
+run-paper = {id = "xyz.jpenilla.run-paper", version = "3.0.2"}
 plugin-yml-paper = {id = "net.minecrell.plugin-yml.paper", version = "0.6.0"}
