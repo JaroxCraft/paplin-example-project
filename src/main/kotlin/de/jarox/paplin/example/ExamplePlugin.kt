@@ -1,5 +1,6 @@
 package de.jarox.paplin.example
 
+import com.mojang.brigadier.arguments.StringArgumentType
 import de.jarox.paplin.PaplinPlugin
 import de.jarox.paplin.chat.component
 import de.jarox.paplin.command.argument
@@ -21,7 +22,7 @@ class ExamplePlugin : PaplinPlugin() {
             }
 
             // simple argument
-            argument<String>("message") {
+            argument("message", StringArgumentType.greedyString()) {
                 runs {
                     this.source.sender.sendMessage(component(getArgument("message")))
                 }
@@ -30,7 +31,7 @@ class ExamplePlugin : PaplinPlugin() {
 
         // register a simple listener
         listen<BlockBreakEvent> { event ->
-            broadcast(event.player.name().append(component(" broke a block!")))
+            broadcast(event.player.name().append(component(" broke ")).append(component(event.block.type.blockTranslationKey!!)))
         }
     }
 }
