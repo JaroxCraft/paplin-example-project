@@ -5,4 +5,9 @@ pluginManagement {
     }
 }
 
+val paplinLocalPath = providers.gradleProperty("paplin.local.path").orNull
+if (paplinLocalPath != null) {
+    includeBuild(paplinLocalPath)
+}
+
 rootProject.name = "paplin-example-project"

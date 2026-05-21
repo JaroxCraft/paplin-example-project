@@ -34,9 +34,19 @@ Then test the example command:
 /mycommand Hello from Paplin!
 ```
 
+## Local Development
+
+To test local Paplin changes without publishing:
+
+- **Composite build** (no publish step):  
+  Run `./gradlew -Ppaplin.local.path=../paplin runServer` (adjust the path to your local Paplin clone).
+
+- **Maven local**:  
+  Publish Paplin locally with `./gradlew publishToMavenLocal`, then run `./gradlew -PuseMavenLocal runServer`.
+
 ## Dependencies
 
-Paplin is fetched from Repsy Maven. Versions are managed in `gradle/libs.versions.toml`:
+Paplin is fetched from GitHub Packages. Versions are managed in `gradle/libs.versions.toml`:
 
 ```toml
 [versions]
