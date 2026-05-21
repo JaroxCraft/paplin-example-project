@@ -42,8 +42,7 @@ To test local Paplin changes without publishing:
   Run `./gradlew -Ppaplin.local.path=../paplin runServer` (adjust the path to your local Paplin clone).
 
 - **Maven local**:  
-  Publish Paplin locally with `./gradlew publishToMavenLocal`, then run `./gradlew -PuseMavenLocal runServer`.
-
+  In your local Paplin repository, run `./gradlew publishToMavenLocal`, then in this project run `./gradlew -PuseMavenLocal runServer`.
 ## Dependencies
 
 Paplin is fetched from GitHub Packages. Versions are managed in `gradle/libs.versions.toml`:
