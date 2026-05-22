@@ -12,6 +12,9 @@ group = "de.jarox"
 version = "1.0.0"
 
 repositories {
+    if (providers.gradleProperty("useMavenLocal").orNull == "true") {
+        mavenLocal()
+    }
     mavenCentral()
     maven {
         name = "Paplin"
@@ -24,6 +27,7 @@ dependencies {
 
     shadow(kotlin("stdlib"))
 
+    implementation(libs.commandapi.paper.shade)
     implementation("de.jarox:paplin:${libs.versions.paplin.get()}+${libs.versions.minecraft.get()}")
 }
 
