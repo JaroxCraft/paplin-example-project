@@ -1,37 +1,34 @@
 package de.jarox.paplin.example
 
-import com.mojang.brigadier.arguments.StringArgumentType
 import de.jarox.paplin.PaplinPlugin
 import de.jarox.paplin.chat.component
-import de.jarox.paplin.command.argument
-import de.jarox.paplin.command.command
-import de.jarox.paplin.command.runs
 import de.jarox.paplin.event.listen
 import de.jarox.paplin.extension.broadcast
+import dev.jorel.commandapi.kotlindsl.anyExecutor
+import dev.jorel.commandapi.kotlindsl.commandTree
+import dev.jorel.commandapi.kotlindsl.greedyStringArgument
 import net.kyori.adventure.text.Component
 import org.bukkit.event.block.BlockBreakEvent
 
 class ExamplePlugin : PaplinPlugin() {
-
     override fun enable() {
         // register a simple command
-        command("mycommand") {
-            runs {
-                // automatically only allow players to execute this command
-                player.sendMessage(Component.text("Hello, world!"))
+        commandTree("mycommand") {
+            anyExecutor { sender, _ ->
+                sender.sendMessage(Component.text("Hello, world!"))
             }
 
-            // simple argument
-            argument("message", StringArgumentType.greedyString()) {
-                runs {
-                    this.source.sender.sendMessage(component(getArgument("message")))
+            greedyStringArgument("message") {
+                anyExecutor { sender, args ->
+                    val message = args["message"] as String
+                    sender.sendMessage(component(message))
                 }
             }
         }
 
         // register a simple listener
-        listen<BlockBreakEvent> { event ->
-            broadcast(event.player.name().append(component(" broke ")).append(component(event.block.type.blockTranslationKey!!)))
+        listen<BlockBreakEvent> {
+            broadcast(component("${it.player.name} broke a block!"))
         }
     }
 }
