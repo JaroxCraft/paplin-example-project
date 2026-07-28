@@ -2,7 +2,7 @@
 kotlin = "2.3.21"
 minecraft = "26.1.2"
 paplin = "1.1.0"
-commandapi = "11.2.0"
+commandapi = "12.0.0"
 
 [libraries]
 commandapi-paper-shade = { module = "dev.jorel:commandapi-paper-shade", version.ref = "commandapi" }
