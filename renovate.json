@@ -1,7 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":disableDependencyDashboard"
+    "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "Paplin is published to Repsy as <paplin>+<minecraft>; the Minecraft version in the build is derived from it",
+      "matchPackageNames": ["de.jarox:paplin"],
+      "registryUrls": ["https://repo.repsy.io/mvn/jaroxcraft/paplin"]
+    },
+    {
+      "description": "paperweight publishes 2.0.0-SNAPSHOT, which sorts above the 2.0.0 betas and hides them",
+      "matchDepNames": ["io.papermc.paperweight.userdev"],
+      "allowedVersions": "!/-SNAPSHOT$/"
+    }
   ]
 }

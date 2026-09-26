@@ -11,6 +11,9 @@ plugins {
 group = "de.jarox"
 version = "1.0.0"
 
+// Paplin releases are built against exactly one Minecraft version: <paplin>+<minecraft>
+val minecraftVersion = libs.versions.paplin.get().substringAfter('+')
+
 repositories {
     if (providers.gradleProperty("useMavenLocal").orNull == "true") {
         mavenLocal()
@@ -23,12 +26,12 @@ repositories {
 }
 
 dependencies {
-    paperweight.paperDevBundle("${libs.versions.minecraft.get()}.build.+")
+    paperweight.paperDevBundle("$minecraftVersion.build.+")
 
     shadow(kotlin("stdlib"))
 
     implementation(libs.commandapi.paper.shade)
-    implementation("de.jarox:paplin:${libs.versions.paplin.get()}+${libs.versions.minecraft.get()}")
+    implementation(libs.paplin)
 }
 
 java {
@@ -44,9 +47,9 @@ paper {
 
     main = "de.jarox.paplin.example.ExamplePlugin"
 
-    apiVersion = libs.versions.minecraft.get()
+    apiVersion = minecraftVersion
 }
 
 tasks.runServer {
-    minecraftVersion(libs.versions.minecraft.get())
+    minecraftVersion(minecraftVersion)
 }

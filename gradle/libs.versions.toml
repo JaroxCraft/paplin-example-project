@@ -1,10 +1,11 @@
 [versions]
 kotlin = "2.4.20"
-minecraft = "26.2"
-paplin = "1.2.1"
+# Paplin release in the form <paplin>+<minecraft>; the Minecraft version is derived from it
+paplin = "1.2.1+26.2"
 commandapi = "12.0.0"
 
 [libraries]
+paplin = { module = "de.jarox:paplin", version.ref = "paplin" }
 commandapi-paper-shade = { module = "dev.jorel:commandapi-paper-shade", version.ref = "commandapi" }
 
 [plugins]
