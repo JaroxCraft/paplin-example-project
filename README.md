@@ -4,9 +4,10 @@ Example Paper plugin demonstrating [Paplin](https://github.com/JaroxCraft/paplin
 
 ## What it shows
 
-- **Command DSL** — `command { }`, `argument<T>()`, `runs { }` for Brigadier commands
-- **Event DSL** — `listen<BlockBreakEvent> { }` for event handling
+- **Commands** — [CommandAPI](https://commandapi.jorel.dev) Kotlin DSL (`commandTree { }`), initialized automatically by `PaplinPlugin`
+- **Event DSL** — `listen<BlockBreakEvent>(plugin) { }` for event handling
 - **Chat components** — `component { }` for Kyori Adventure text building
+- **Scheduler DSL** — `runSync(ticks) { }`, `runAsync { }`, `runTimer(interval) { }` for task scheduling
 - **Plugin lifecycle** — extending `PaplinPlugin` with `enable()` / `disable()` hooks
 
 ## Prerequisites
@@ -40,8 +41,8 @@ Paplin is fetched from Repsy Maven. Versions are managed in `gradle/libs.version
 
 ```toml
 [versions]
-minecraft = "26.1.2"
-paplin = "1.0.0"
+minecraft = "26.2"
+paplin = "1.2.1"
 ```
 
 The artifact coordinate uses a `+` separator (SemVer build metadata):
