@@ -2,7 +2,7 @@
 kotlin = "2.4.20"
 # Paplin release in the form <paplin>+<minecraft>; the Minecraft version is derived from it
 paplin = "1.2.1+26.2"
-commandapi = "12.0.0"
+commandapi = "12.1.0"
 
 [libraries]
 paplin = { module = "de.jarox:paplin", version.ref = "paplin" }
