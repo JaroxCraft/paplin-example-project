@@ -37,23 +37,21 @@ Then test the example command:
 
 ## Dependencies
 
-Paplin is fetched from Repsy Maven. Versions are managed in `gradle/libs.versions.toml`:
+Paplin is fetched from Repsy Maven. Its version lives in `gradle/libs.versions.toml` and uses a `+` separator (SemVer build metadata) to name the Minecraft version it is built for:
 
 ```toml
 [versions]
-minecraft = "26.2"
-paplin = "1.2.1"
+paplin = "1.2.1+26.2"
+
+[libraries]
+paplin = { module = "de.jarox:paplin", version.ref = "paplin" }
 ```
 
-The artifact coordinate uses a `+` separator (SemVer build metadata):
-
-```kotlin
-implementation("de.jarox:paplin:${libs.versions.paplin.get()}+${libs.versions.minecraft.get()}")
-```
+The Minecraft version (Paper dev bundle, `api-version`, `runServer`) is derived from the part after `+`, so Paplin and Minecraft are always updated together.
 
 ## Updating Paplin
 
-Bump `paplin` in `gradle/libs.versions.toml` and rebuild. Renovate will also open PRs automatically when new versions are published.
+Renovate opens a PR whenever a new Paplin release is published to Repsy (see `renovate.json`). To update manually, change `paplin` in `gradle/libs.versions.toml` and rebuild.
 
 ## Building
 
