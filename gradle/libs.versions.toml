@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.3.21"
+kotlin = "2.4.20"
 minecraft = "26.1.2"
 paplin = "1.1.0"
 commandapi = "11.2.0"
