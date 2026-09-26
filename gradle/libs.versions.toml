@@ -11,6 +11,6 @@ commandapi-paper-shade = { module = "dev.jorel:commandapi-paper-shade", version.
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 shadow = { id = "com.gradleup.shadow", version = "9.6.1" }
-paperweight-userdev = { id = "io.papermc.paperweight.userdev", version = "2.0.0-beta.21" }
+paperweight-userdev = { id = "io.papermc.paperweight.userdev", version = "2.0.0-beta.24" }
 run-paper = { id = "xyz.jpenilla.run-paper", version = "3.1.0" }
 plugin-yml-paper = { id = "net.minecrell.plugin-yml.paper", version = "0.6.0" }
